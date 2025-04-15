@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning Class</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #eabe10b8;
+      --light-bg: #f4f4f4;
+      --dark-text: #333;
+      --sidebar-width: 250px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      padding-top: 70px; /* for fixed navbar */
+    }
+
+    header {
+      background-color: var(--primary-color);
+      padding: 1rem;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar h1 {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    /* Submenu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: white;
+      min-width: 150px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      z-index: 1001;
+    }
+
+    .dropdown-content a {
+      display: block;
+      color: var(--dark-text);
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--light-bg);
+      color: var(--primary-color);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    aside {
+      width: var(--sidebar-width);
+      background-color: white;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    aside ul {
+      list-style: none;
+    }
+
+    aside li {
+      margin-bottom: 10px;
+    }
+
+    aside a {
+      text-decoration: none;
+      color: var(--dark-text);
+    }
+
+    aside a:hover {
+      color: var(--primary-color);
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .lesson-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .lesson-box pre {
+      background: #f0f0f0;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="navbar">
+      <h1>Learning Class</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+
+        <div class="dropdown">
+          <a href="#topics">Topics ▾</a>
+          <div class="dropdown-content">
+            <a href="#html">HTML Basics</a>
+            <a href="#css">CSS Styling</a>
+            <a href="#js">JavaScript Intro</a>
+            <a href="#php">PHP Tutorials</a>
+          </div>
+        </div>
+
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Layout -->
+  <div class="container">
+    <aside>
+      <h2>Topics</h2>
+      <ul>
+        <li><a href="#html">HTML Basics</a></li>
+        <li><a href="#css">CSS Styling</a></li>
+        <li><a href="#js">JavaScript Intro</a></li>
+        <li><a href="#php">PHP Tutorials</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <div id="home" class="lesson-box">
+        <h2>Welcome to the Learning Class</h2>
+        <p>Learn how to build websites with hands-on lessons and interactive examples.</p>
+      </div>
+
+      <div id="html" class="lesson-box">
+        <h3>HTML Basics</h3>
+        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </pre>
+      </div>
+
+      <div id="css" class="lesson-box">
+        <h3>CSS Styling</h3>
+        <pre>
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+        </pre>
+      </div>
+
+      <div id="js" class="lesson-box">
+        <h3>JavaScript Intro</h3>
+        <pre>
+// Just a comment here
+console.log("Hello, JavaScript!");
+        </pre>
+      </div>
+
+      <div id="php" class="lesson-box">
+        <h3>PHP Tutorials</h3>
+        <pre>
+&lt;?php
+echo "Hello, PHP!";
+?&gt;
+        </pre>
+      </div>
+
+      <div id="contact" class="lesson-box">
+        <h3>Contact</h3>
+        <p>Email us at: contact@learningclass.com</p>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
